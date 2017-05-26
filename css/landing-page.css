@@ -1,0 +1,207 @@
+*, :after, :before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #3e4855;
+    background-color: #fff;
+    line-height: 1.42857143;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+#page-wrapper:after, 
+#page-wrapper:before, 
+.btn-group:after, 
+.btn-group:before, 
+.btn-toolbar:after, 
+.btn-toolbar:before, 
+.button-pane:after, 
+.button-pane:before, 
+.chat-box li:after, 
+.chat-box li:before, 
+.clearfix:after, 
+.clearfix:before, 
+.comments-list li .panel-body:after, 
+.comments-list li .panel-body:before, 
+.container:after, .container:before, 
+.content-box-header:after, 
+.content-box-header:before, 
+.example-box-wrapper:after, 
+.example-box-wrapper:before, 
+.files-box li:after, 
+.files-box li:before, 
+.form-input-prepend:after, 
+.form-input-prepend:before, 
+.form-row:after, 
+.form-row:before, 
+.info-box:after, 
+.info-box:before, 
+.messages-box li:after, 
+.messages-box li:before, 
+.nav-list li:after, 
+.nav-list li:before, 
+.nav:after, 
+.nav:before, 
+.notifications-box li:after, 
+.notifications-box li:before, 
+.pager:after, 
+.pager:before, 
+.posts-list li:after, 
+.posts-list li:before, 
+.tl-item:after, 
+.tl-item:before, 
+.tl-row:after, 
+.tl-row:before, 
+.todo-box li:after, 
+.todo-box li:before, 
+.ui-datepicker-buttonpane:after, 
+.ui-datepicker-buttonpane:before, 
+.ui-helper-clearfix:after, 
+.ui-helper-clearfix:before {
+    display: table;
+    content: '';
+}
+
+#page-wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	background: #fff;
+	box-shadow: 2px 2px 20px rgba(0,0,0,.15);
+	width: 1170px;
+}
+
+.bg-header {
+    background: #fff;
+}
+.main-header {
+    position: relative;
+    z-index: 20;
+    height: 78px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.main-header .container {
+    position: relative;
+    height: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+.main-header .header-logo {
+    float: left;
+    margin: 19px 0 18px;
+    background: url(../images/logo.png) left 50% no-repeat;
+    width: 258px;
+    height: 34px;
+}
+.main-header .header-nav {
+    float: right;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.main-header .header-nav li, .main-header .header-nav li a {
+    display: block;
+    list-style: none;
+    float: left;
+    position: relative;
+}
+.main-header .header-nav>li>a {
+    padding: 0 5px;
+    margin: 0 10px;
+    height: 78px;
+    line-height: 78px;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+.main-header .header-nav li, .main-header .header-nav li a {
+    display: block;
+    list-style: none;
+    float: left;
+    position: relative;
+    color: #8da0aa;
+}
+.main-header .header-nav li.active a,
+.main-header .header-nav li a:hover {
+    color: #1c82e1;
+}
+
+/* SLIDER */
+.slider-wrapper {
+    position: relative;
+    height: 425px;
+    text-align: center;
+}
+.slider-wrapper .container {
+    height: 100%;
+    background-image: url('../images/poly-bg.jpg');
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    -ms-background-position-y: -230px;
+    background-position-y: -230px;
+}
+.hero-heading {
+    font-size: 42px;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin: 85px 0 10px;
+}
+.hero-text {
+    color: rgba(255,255,255,0.59);
+    font-size: 26px;
+    font-weight: 300;
+    margin: 10px;
+}
+.hero-btn {
+    font-size: 23px;
+    height: 80px;
+    line-height: 77px;
+    padding: 0 20px;
+    min-width: 250px;
+    margin: 20px auto 0;
+    border-radius: 3px;
+    border-color: rgba(255,255,255,.47);
+    outline: 0;
+    color: #fff;
+}
+.btn-outline, .btn-outline-inverse {
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    box-sizing: initial;
+    border-width: 2px;
+    border-style: solid;
+    text-transform: uppercase;
+}
+
+/* SECTION 3 */
+#section3 {
+    height: 400px;
+    padding: 85px 0;
+}
+.col-4 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+    float: left;
+    width: 33.33333333333333%;
+}
+.icon-box {
+    text-align: center;
+    margin-top: 34px;
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 20px 0;
+    position: relative;
+    border-width: 1px;
+    border-style: solid;
+}
