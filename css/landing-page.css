@@ -161,20 +161,20 @@ a {
     -ms-background-position-y: -230px;
     background-position-y: -230px;
 }
-.hero-heading {
+.learn-heading {
     font-size: 42px;
     font-weight: 300;
     text-transform: uppercase;
     color: rgba(255,255,255,0.7);
     margin: 85px 0 10px;
 }
-.hero-text {
+.learn-text {
     color: rgba(255,255,255,0.59);
     font-size: 26px;
     font-weight: 300;
     margin: 10px;
 }
-.hero-btn {
+.learn-btn {
     font-size: 23px;
     height: 80px;
     line-height: 77px;
@@ -186,7 +186,7 @@ a {
     outline: 0;
     color: #fff;
 }
-.hero-btn:hover, .hero-btn:active {
+.learn-btn:hover, .learn-btn:active {
     background: rgba(255,255,255,.2);
     border-color: #fff;
 }
@@ -283,7 +283,7 @@ a {
     background: #58d68d;
 }
 
-.hero-box {
+.learn-box {
     background-repeat: no-repeat;
     background-position: center center;
     -webkit-background-size: cover;
@@ -294,12 +294,12 @@ a {
     position: relative;
 }
 
-.hero-box * {
+.learn-box * {
     position: relative;
     z-index: 13;
 }
 
-.hero-box-smaller {
+.learn-box-smaller {
     padding: 6em 0;
 }
 
