@@ -3,5 +3,6 @@ $(document).ready(function(){
 		// theme: 'facebook',
 		// slideshow: 5000, 
 		// autoplay_slideshow:true
+		social_tools: ''
 	});
 });
