@@ -14,6 +14,16 @@ a {
     text-decoration: none;
 }
 
+:active, 
+:focus, 
+:visited, 
+a, 
+a:active, 
+a:focus, 
+a:visited {
+    outline: 0;
+}
+
 #page-wrapper:after, 
 .clearfix:after, 
 .row:after, 
@@ -47,6 +57,12 @@ a {
 .col-4, .col-s4 {width: 33.33333333333333%; }
 .col-5, .col-s5 {width: 41.66666666666667%; }
 .col-6, .col-s6 {width: 50%; }
+.col-7, .col-s7 {width: 8.333333333333332%; }
+.col-8, .col-s8 {width: 66.666666666666664%; }
+.col-9, .col-s9 {width: 75%; }
+.col-10, .col-s10 {width: 83.33333333333333%; }
+.col-11, .col-s11 {width: 91.66666666666667%; }
+.col-12, .col-s12 {width: 100%; }
 
 .divider {
     background: #dfe8f1;
@@ -144,7 +160,8 @@ a {
     color: #8da0aa;
 }
 .main-header .header-nav li.active a,
-.main-header .header-nav li a:hover {    color: #1c82e1;
+.main-header .header-nav li a:hover {
+    color: #1c82e1;
 }
 
 /* SLIDER */
@@ -156,10 +173,10 @@ a {
 .slider-wrapper .container {
     height: 100%;
     background-image: url('../images/poly-bg.jpg');
-    -webkit-background-size: 100%;
-    background-size: 100%;
-    -ms-background-position-y: -230px;
-    background-position-y: -230px;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -ms-background-position-y: 0;
+    background-position-y: 0;
 }
 .learn-heading {
     font-size: 42px;
@@ -199,11 +216,20 @@ a {
     border-style: solid;
     text-transform: uppercase;
 }
+h3.section-title {
+    font-size: 28px;
+    text-align: center;
+    margin: 0 0 40px;
+}
+p.section-description {
+    margin-top: -28px;
+    margin-bottom: 35px;
+}
 
 /* SECTION 3 */
 #section3 {
     height: 400px;
-    padding: 85px 0;
+    padding: 55px 0 85px;
 }
 #section3 .icon-box {
     text-align: center;
@@ -355,19 +381,20 @@ a {
 }
 #section6 .testimonial-box-big .testimonial-content p {
     font-size: 22px;
-    padding: 0 20px;
+    padding: 0 55px;
 }
 #section6 .testimonial-box-big .testimonial-content .fa {
-    position: absolute;
     font-size: 40px;
 }
 #section6 .testimonial-box-big .testimonial-content .fa-quote-left {
-    top: 0;
-    left: -30px;
+    float: left;
 }
 #section6 .testimonial-box-big .testimonial-content .fa-quote-right {
-    top: 0;
-    right: -30px;
+    float: right;
+}
+#section6 .testimonial-box-big .testimonial-author b {
+    display: block;
+    padding: 10px 0 5px;
 }
 
 /* FOOTER */
@@ -377,12 +404,7 @@ a {
     position: relative;
     padding-top: 35px;
     color: rgba(255,255,255,.3);
-    background: #2d2d2d;/*
-    background: radial-gradient(circle at 1.98% 2%,#B993D6,transparent 100%),
-                radial-gradient(circle at 98.02% 92.01%,#8CA6DB,transparent 100%),
-                radial-gradient(circle at 50% 50%,#0cc285,#0cc285 100%);
-    background-color: transparent!important;*/
-    /*color: #ccc;*/
+    background: #2d2d2d;
     border-color: #000;
 }
 .main-footer {
@@ -438,10 +460,6 @@ a {
     z-index: 1;
     display: inline;
     margin-right: 15px;
-    margin-top: 5px;
-}
-#footer.main-footer .posts-list li .post-image a {
-    /*color: #fff;*/
 }
 #footer.main-footer .posts-list li .post-image img {
     width: 88px;
@@ -455,6 +473,9 @@ a {
 }
 #footer.main-footer .posts-list li a {
     color: rgba(255,255,255,.8);
+}
+.post-title h3 {
+    margin-top: 0;
 }
 #footer.main-footer .posts-list li .post-title {
     margin-bottom: 10px;
@@ -492,4 +513,55 @@ a {
 #footer.main-footer .footer-contact li {
     padding: 5px 0;
     font-size: 12px;
+}
+
+#section7 {
+    background-color: #f6f6f6;
+}
+#big-input-email {
+    display: inline-block;
+    float: none;
+    background: #fff;
+    color: #2b2f33;
+    border: 1px solid #dfe8f1;
+    -webkit-box-shadow: inset 1px 1px 3px #f6f6f6;
+    -moz-box-shadow: inset 1px 1px 3px #f6f6f6;
+    box-shadow: inset 1px 1px 3px #f6f6f6;
+    font-size: 18px;
+    line-height: 1.33;
+    height: 45px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    width: 300px;
+    margin-bottom: 20px;
+}
+#big-input-email:focus {
+    color: #333;
+    border-color: #3da6ff;
+}
+
+#button-join {
+    cursor: pointer;
+    background: #00c853 none repeat scroll 0 0;
+    margin-bottom: : 0;
+    border: 0 none;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    transition: background-color 0.2s ease 0s, box-shadow 0.2s ease 0s;
+    border-radius: 2px;
+    letter-spacing: 0.5px;
+    padding: 13px 26px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
