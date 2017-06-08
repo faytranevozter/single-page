@@ -127,10 +127,12 @@ a:visited {
 }
 .main-header .header-logo {
     float: left;
-    margin: 19px 0 18px;
+    margin: 20px 0 18px;
     background: url(../images/logo.png) left 50% no-repeat;
     width: 258px;
-    height: 34px;
+    height: 40px;
+    -webkit-background-size: 100%;
+    background-size: 100%;
 }
 .main-header .header-nav {
     float: right;
