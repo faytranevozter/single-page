@@ -91,23 +91,6 @@ a:visited {
 	box-shadow: 2px 2px 20px rgba(0,0,0,.15);
 	width: 1170px;
 }
-/* RESPONSIVE */
-@media (min-width: 768px){
-    #page-header, #page-wrapper, .container {
-        max-width: 750px;
-    }
-}
-@media (min-width: 992px){
-    #page-header, #page-wrapper, .container {
-        max-width: 970px;
-    }
-}
-@media (min-width: 1200px){
-    #page-header, #page-wrapper, .container {
-        max-width: 1170px;
-    }
-}
-
 
 .bg-header {
     background: #fff;
@@ -191,7 +174,7 @@ a:visited {
     color: rgba(255,255,255,0.59);
     font-size: 26px;
     font-weight: 300;
-    margin: 10px;
+    margin: 10px 100px;
 }
 .learn-btn {
     font-size: 23px;
@@ -533,9 +516,12 @@ p.section-description {
     line-height: 1.33;
     height: 45px;
     padding: 10px 16px;
-    border-radius: 6px;
-    width: 300px;
+    border-radius: 3px;
+    width: 500px;
     margin-bottom: 20px;
+    -webkit-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    transition: all .2s ease-in;
 }
 #big-input-email:focus {
     color: #333;
@@ -566,4 +552,36 @@ p.section-description {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+#button-join:hover {
+    background: #00e676;
+    color: #fff;
+}
+button:focus, button:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px){
+    #page-header, #page-wrapper, .container {
+        max-width: 750px;
+    }
+    .learn-text {
+        margin: 10px 45px;
+    }
+}
+@media (min-width: 992px){
+    #page-header, #page-wrapper, .container {
+        max-width: 970px;
+    }
+    .learn-text {
+        margin: 10px 50px;
+    }
+}
+@media (min-width: 1200px){
+    #page-header, #page-wrapper, .container {
+        max-width: 1170px;
+    }
 }
