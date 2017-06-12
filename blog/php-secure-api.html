@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> PHP: Building Your Startup: Securing an API </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" type="text/css" href="../css/landing-page.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+    <!-- prettyphoto -->
+    <link rel="stylesheet" type="text/css" href="../plugins/prettyphoto/css/prettyPhoto.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="57x57" href="../images/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../images/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../images/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../images/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../images/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../images/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../images/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../images/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/icon/favicon-16x16.png">
+    <link rel="manifest" href="../images/icon/manifest.json">
+    <meta name="msapplication-config" content="../browserconfig.xml">
+    
+    <!-- Coloring -->
+    <meta name="msapplication-TileColor" content="#4173cc">
+    <meta name="msapplication-TileImage" content="../images/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#4173cc">
+</head>
+
+<body class="boxed-layout">
+    <div id="page-wrapper">
+        <div class="main-header bg-header">
+            <div class="container">
+                <a href="index.html" class="header-logo"></a>
+                <ul class="header-nav collapse">
+                    <li> <a href="../index.html" title="Homepages">Homepages</a> </li>
+                    <li> <a href="#" title="Programs">Programs</a> </li>
+                    <li class="active"> <a href="#" title="Tutorials">Tutorials</a> </li>
+                    <li> <a href="#" title="Student Scratch">Student Scratch</a> </li>
+                    <li> <a href="#free-trial" title="Free Trial">Free Trial</a> </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="section5">
+            <div class="container">
+                <h1 class="learn-heading">LET'S LEARN PROGRAMMING</h1>
+                <p class="learn-text">The right solution to make your own application from scratch without wasting your lovely <b><i>time</i></b>, <b><i>money</i></b> and <b><i>energy</i></b>.</p>
+            </div>
+        </div>
+
+        <div id="page-content" class="container">
+            <div class="row">
+                <div class="col-9">
+                    <div class="blog-box row">
+                        <a class="post-title" href="#" title=" PHP: Building Your Startup: Securing an API ">
+                            <h3> PHP: Building Your Startup: Securing an API </h3>
+                        </a>
+                        <div class="post-image">
+                            <a href="#">
+                                <img class="img-responsive" src="../images/tuts/secure.jpg" alt="images" />
+                            </a>
+                        </div>
+                        <div class="post-content-wrapper">
+                            <div class="post-meta clearfix">
+                                <span class="float-left">
+                                    <i class="fa fa-user"></i>
+                                    <a href="#" title="Fahrur Rifai">Fahrur Rifai</a>
+                                </span>
+                                <span class="float-left">
+                                    <i class="fa fa-clock-o"></i>
+                                    5 June 2017
+                                </span>
+                                <span class="float-right">
+                                    <i class="fa fa-comments-o"></i>
+                                    <a href="#comments" title="">1 Comments</a>
+                                </span>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="post-content">
+                            <p>Recently, I introduced you to Yii's simple REST API generation and Meeting Planner's new "RESTful" service API. At that time, I mentioned that these APIs were only loosely secured. Sure, there was a shared secret between the client and the server, but there were a couple of problems.</p>
+                            <p>First, the secret key and user tokens were repeatedly transmitted in query parameters of SSL calls. And there was no other authenticity check for the data, allowing a middle-person attack.</p>
+                            <p>In today's episode, I'll guide you through how I secured the API against these weaknesses for a more robust API.</p>
+                            <p>If you've been reading our startup series, you've probably already tried Meeting Planner and Simple Planner, but if not, please do. Scheduling a meeting is easy:</p>
+                            <p>As usual, I'll be participating in the comments below, so please offer your thoughts. You can also reach me on Twitter @letslearn.id. I'm always especially intrigued if you want to suggest new features or topics for future tutorials. As a reminder, all of the code for Meeting Planner is written in the Yii2 Framework for PHP. If you'd like to learn more about Yii2, check out our parallel series Programming With Yii2.</p>
+                            <p>Furthermore, as I reviewed last time, each user receives their own token when they access Meeting Planner through the API, e.g. via their mobile phone. So, subsequent to registration, we can sign calls with their individual token and don't need to transmit either the application's secret key or the user's individual token.</p>
+                            <p>We began today with the following goals:</p>
+                            <p>Don't ever transmit the secret key over the Internet.</p>
+                            <p>Don't transmit any of the data as URL parameters which might show up in server logs.</p>
+                            <p>Sign all the data to verify its accuracy.</p>
+                            <p>And we accomplished all of these goals with only modest changes to our API code. It was fun making these changes and seeing how easily we can better secure an API. I hope you enjoyed following along with today's episode.</p>
+                            <p>I regularly monitor the comments, so please join in the discussion. You can also reach me on Twitter @letslearn.id directly. And, of course, watch for upcoming tutorials here in the Building Your Startup With PHP series.</p>
+                            <p>If you didn't earlier, try scheduling a meeting at Meeting Planner and let me know what you think. I especially appreciate feature requests.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="text-center post-share-box">
+                        <a href="#" class="btn btn-xs bg-facebook">
+                            <i class="fa fa-facebook"></i>&nbsp;
+                            <span class="button-content"> Share on Facebook </span>
+                        </a>
+                        <a href="#" class="btn btn-xs bg-google">
+                            <i class="fa fa-google-plus"></i>&nbsp;
+                            <span class="button-content"> Share on Google </span>
+                        </a>
+                        <a href="#" class="btn btn-xs bg-twitter">
+                            <i class="fa fa-twitter"></i>&nbsp;
+                            <span class="button-content"> Share on Twitter </span>
+                        </a>
+                    </div>
+
+                    <div class="blog-comments" id="comments">
+                        <h3 class="p-title title-alt">
+                            <span>Comments</span>
+                        </h3>
+                        <ul class="comments-list">
+                            <li class="panel">
+                                <div class="panel-body">
+                                    <div class="comment-wrapper">
+                                        <div class="clearfix">
+                                            <div class="float-left">
+                                                <div class="comment-author">
+                                                    <b>Ekansh Saxena</b> says:
+                                                </div>
+                                            </div>
+                                            <div class="float-right">
+                                                <div class="comment-date">
+                                                    <i class="glyph-icon icon-clock-o"></i>
+                                                    6 June 2017
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment-body">
+                                            <p>But here you are storing the secret key on user's mobile device which is not secure as well.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="add-comment">
+                        <h3 class="p-title title-alt">
+                            <span>Leave a reply</span>
+                        </h3>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="name" class="col-3 control-label">Name:</label>
+                                <div class="col-9">
+                                    <input type="text" class="form-control" id="name" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="col-3 control-label">Email:</label>
+                                <div class="col-9">
+                                    <input type="text" class="form-control" id="email" placeholder="email@address.com">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="website" class="col-3 control-label">Website:</label>
+                                <div class="col-9">
+                                    <input type="text" class="form-control" id="website" placeholder="http://">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="comment" class="col-3 control-label">Comment:</label>
+                                <div class="col-9">
+                                    <textarea name="comment" id="" cols="30" rows="5" class="form-control textarea-no-resize"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-12">
+                                    <div class="float-right">
+                                        <button class="btn btn-primary">Add Comment</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+
+                </div>
+                <div class="col-3">
+                    <div class="content-box">
+                        <h3 class="content-box-header">
+                            Recent posts
+                        </h3>
+                        <div class="posts-list content-box-wrapper">
+                            <ul>
+                                <li>
+                                    <div class="post-image">
+                                        <a href="../images/img-10.jpg" class="prettyphoto" rel="prettyPhoto[pp_gal]" title="Blog post title">
+                                            <img class="img-responsive" src="../images/img-10.jpg" alt="" />
+                                        </a>
+                                    </div>
+                                    <div class="post-body">
+                                        <a class="post-title" href="blog-single.html" title="">
+                                            <h3>When our power of choice is untrammelled prevents</h3>
+                                        </a>
+                                        <p>No one rejects, dislikes, or avoids pleasure itself, because it is pleasure.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="post-image">
+                                        <a href="../images/img-10.jpg" class="prettyphoto" rel="prettyPhoto[pp_gal]" title="Blog post title">
+                                            <img class="img-responsive" src="../images/img-10.jpg" alt="" />
+                                        </a>
+                                    </div>
+                                    <div class="post-body">
+                                        <a class="post-title" href="blog-single.html" title="">
+                                            <h3>And when nothing prevents our being able</h3>
+                                        </a>
+                                        <p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="post-image">
+                                        <a href="../images/img-10.jpg" class="prettyphoto" rel="prettyPhoto[pp_gal]" title="Blog post title">
+                                            <img class="img-responsive" src="../images/img-10.jpg" alt="" />
+                                        </a>
+                                    </div>
+                                    <div class="post-body">
+                                        <a class="post-title" href="blog-single.html" title="">
+                                            <h3>When our power of choice is untrammelled</h3>
+                                        </a>
+                                        <p>Occasionally circumstances occur in which toil and pain can procure him some great pleasure.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="content-box">
+                        <h3 class="content-box-header">
+                            Programs
+                        </h3>
+                        <div class="content-box-wrapper clearfix tags-list">
+                            <a href="#" class="bs-label label-black">HTML 5</a>
+                            <a href="#" class="bs-label label-black">CSS 3</a>
+                            <a href="#" class="bs-label label-black">Bootstrap</a>
+                            <a href="#" class="bs-label label-black">Javascript & Jquery</a>
+                            <a href="#" class="bs-label label-black">PHP Native</a>
+                            <a href="#" class="bs-label label-black">PHP OOP</a>
+                            <a href="#" class="bs-label label-black">Codeigniter</a>
+                            <a href="#" class="bs-label label-black">Web Design</a>
+                            <a href="#" class="bs-label label-black">Java</a>
+                            <a href="#" class="bs-label label-black">Python</a>
+                            <a href="#" class="bs-label label-black">Android</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br /><br />
+
+        <div id="footer" class="main-footer clearfix">
+            <div class="container clearfix">
+                <div class="col-3">
+                    <h3 class="header">About us</h3>
+                    <p class="about-us">Our mission is an affordable, affordable, exciting, and highly effective education to the world. We believe higher education is a human right, and we seek to empower our students to advance their education and careers.</p>
+                    <div class="divider"></div>
+                    <h3 class="header">Contact us</h3>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            Jl. Wates km 5.5 Bodeh Ambarketawang 
+                            <br>Gamping Sleman Yogyakarta 55294
+                        </li>
+                        <li>
+                            <i class="fa fa-phone"></i>
+                            (+62) 899-2787-073
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope-o"></i>
+                            <a href="#" title="">info@letslearn.id</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <h3 class="header">Recent Tutorials</h3>
+                    <div class="posts-list">
+                        <ul>
+                            <li>
+                                <div class="post-image">
+                                    <a href="#" title="How to Build Web Form Layouts With CSS Grid">
+                                        <img class="img-responsive" src="../images/tuts/css.png" alt="How to Build Web Form Layouts With CSS Grid">
+                                    </a>
+                                </div>
+                                <div class="post-body">
+                                    <a class="post-title" href="#" title="">
+                                        <h3>CSS: How to Build Web Form Layouts With CSS Grid</h3>
+                                    </a>
+                                    by <a href="#">Fahrur Rifai</a> on 04 June 2017
+                                </div>
+                            </li>
+                            <li>
+                                <div class="post-image">
+                                    <a href="#" title="Building Your Startup: Securing an API">
+                                        <img class="img-responsive" src="../images/tuts/secure.jpg" alt="Building Your Startup: Securing an API">
+                                    </a>
+                                </div>
+                                <div class="post-body">
+                                    <a class="post-title" href="#" title="">
+                                        <h3>PHP: Building Your Startup: Securing an API</h3>
+                                    </a>
+                                    by <a href="#">Galang Ihsan</a> on 31 May 2017
+                                </div>
+                            </li>
+                            <li>
+                                <div class="post-image">
+                                    <a href="#" title="Android O: How to Use Notification Channels">
+                                        <img class="img-responsive" src="../images/tuts/android-o.jpg" alt="Android O: How to Use Notification Channels">
+                                    </a>
+                                </div>
+                                <div class="post-body">
+                                    <a class="post-title" href="#" title="">
+                                        <h3>Android O: How to Use Notification Channels</h3>
+                                    </a>
+                                    by <a href="#">Anonymous</a> on 23 May 2017
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <h3 class="header">Programs</h3>
+                    <ul class="footer-nav">
+                        <li><a href="#"><span>HTML 5 & CSS 3</span></a></li>
+                        <li><a href="#"><span>Bootstrap</span></a></li>
+                        <li><a href="#"><span>Javascript & Jquery</span></a></li>
+                        <li><a href="#"><span>PHP Native</span></a></li>
+                        <li><a href="#"><span>PHP OOP</span></a></li>
+                        <li><a href="#"><span>Codeigniter</span></a></li>
+                        <li><a href="#"><span>Web Design</span></a></li>
+                        <li><a href="#"><span>Java</span></a></li>
+                        <li><a href="#"><span>Python</span></a></li>
+                        <li><a href="#"><span>Android</span></a></li>
+                    </ul>
+                </div>
+                <div class="col-3">
+                    <h3 class="header">STUDENT SCRATCH</h3>
+                    <div class="row no-gutter">
+                        <div class="col-s4">
+                            <a href="../images/img-10.jpg" rel="prettyPhoto[scratch]" title="Student Scratch">
+                                <img class="img-responsive" src="../images/img-10.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-s4">
+                            <a href="../images/img-10.jpg" rel="prettyPhoto[scratch]" title="Student Scratch">
+                                <img class="img-responsive" src="../images/img-10.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-s4">
+                            <a href="../images/img-10.jpg" rel="prettyPhoto[scratch]" title="Student Scratch">
+                                <img class="img-responsive" src="../images/img-10.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-s4">
+                            <a href="../images/img-10.jpg" rel="prettyPhoto[scratch]" title="Student Scratch">
+                                <img class="img-responsive" src="../images/img-10.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-s4">
+                            <a href="../images/img-10.jpg" rel="prettyPhoto[scratch]" title="Student Scratch">
+                                <img class="img-responsive" src="../images/img-10.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-s4">
+                            <a href="../images/img-10.jpg" rel="prettyPhoto[scratch]" title="Student Scratch">
+                                <img class="img-responsive" src="../images/img-10.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-s4">
+                            <a href="../images/img-10.jpg" rel="prettyPhoto[scratch]" title="Student Scratch">
+                                <img class="img-responsive" src="../images/img-10.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-s4">
+                            <a href="../images/img-10.jpg" rel="prettyPhoto[scratch]" title="Student Scratch">
+                                <img class="img-responsive" src="../images/img-10.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-s4">
+                            <a href="../images/img-10.jpg" rel="prettyPhoto[scratch]" title="Student Scratch">
+                                <img class="img-responsive" src="../images/img-10.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-s4">
+                            <a href="../images/img-10.jpg" rel="prettyPhoto[scratch]" title="Student Scratch">
+                                <img class="img-responsive" src="../images/img-10.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-s4">
+                            <a href="../images/img-10.jpg" rel="prettyPhoto[scratch]" title="Student Scratch">
+                                <img class="img-responsive" src="../images/img-10.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-s4">
+                            <a href="../images/img-10.jpg" rel="prettyPhoto[scratch]" title="Student Scratch">
+                                <img class="img-responsive" src="../images/img-10.jpg" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-pane">
+                <div class="container clearfix">
+                    <div class="logo">&copy; 2017 LetsLearn.ID. All Rights Reserved.</div>
+                    <div class="footer-nav-bottom">
+                        <a href="#" title="Privacy & Terms">Privacy & Terms</a>
+                        <a href="#" title="About Lets Learn">About Lets Learn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JQuery -->
+    <!-- <script src="js/jquery-3.2.1.min.js"></script> -->
+    <!-- prettyPhoto -->
+    <script src="../plugins/prettyphoto/js/jquery-1.6.1.min.js"></script>
+    <script src="../plugins/prettyphoto/js/jquery.prettyPhoto.js"></script>
+    <!-- Handmade -->
+    <script src="../js/app.js"></script>
+
+
+</body>
+</html>
