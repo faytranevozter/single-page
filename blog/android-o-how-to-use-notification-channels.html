@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> PHP: Building Your Startup: Securing an API </title>
+    <title>Android O: How to Use Notification Channels</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <link rel="stylesheet" type="text/css" href="../css/landing-page.css">
@@ -62,44 +62,48 @@
             <div class="row">
                 <div class="col-9">
                     <div class="blog-box row">
-                        <a class="post-title" href="#" title=" PHP: Building Your Startup: Securing an API ">
-                            <h3> PHP: Building Your Startup: Securing an API </h3>
+                        <a class="post-title" href="#" title="Android O: How to Use Notification Channels">
+                            <h3>Android O: How to Use Notification Channels</h3>
                         </a>
                         <div class="post-image">
                             <a href="#">
-                                <img class="img-responsive" src="../images/tuts/secure.jpg" alt="images" />
+                                <img class="img-responsive" src="../images/tuts/android-o.jpg" alt="images" />
                             </a>
                         </div>
                         <div class="post-content-wrapper">
                             <div class="post-meta clearfix">
                                 <span class="float-left">
                                     <i class="fa fa-user"></i>
-                                    <a href="#" title="Galang Ihsan ">Galang Ihsan   </a>
+                                    <a href="#" title="Anonymous">Anonymous</a>
                                 </span>
                                 <span class="float-left">
                                     <i class="fa fa-clock-o"></i>
-                                    31 May 2017
+                                    23 May 2017
                                 </span>
                                 <span class="float-right">
                                     <i class="fa fa-comments-o"></i>
-                                    <a href="#comments" title="">1 Comments</a>
+                                    <a href="#comments" title="">0 Comments</a>
                                 </span>
                             </div>
                             <div class="divider"></div>
                             <div class="post-content">
-                                <p>Recently, I introduced you to Yii's simple REST API generation and Meeting Planner's new "RESTful" service API. At that time, I mentioned that these APIs were only loosely secured. Sure, there was a shared secret between the client and the server, but there were a couple of problems.</p>
-                                <p>First, the secret key and user tokens were repeatedly transmitted in query parameters of SSL calls. And there was no other authenticity check for the data, allowing a middle-person attack.</p>
-                                <p>In today's episode, I'll guide you through how I secured the API against these weaknesses for a more robust API.</p>
-                                <p>If you've been reading our startup series, you've probably already tried Meeting Planner and Simple Planner, but if not, please do. Scheduling a meeting is easy:</p>
-                                <p>As usual, I'll be participating in the comments below, so please offer your thoughts. You can also reach me on Twitter @letslearn.id. I'm always especially intrigued if you want to suggest new features or topics for future tutorials. As a reminder, all of the code for Meeting Planner is written in the Yii2 Framework for PHP. If you'd like to learn more about Yii2, check out our parallel series Programming With Yii2.</p>
-                                <p>Furthermore, as I reviewed last time, each user receives their own token when they access Meeting Planner through the API, e.g. via their mobile phone. So, subsequent to registration, we can sign calls with their individual token and don't need to transmit either the application's secret key or the user's individual token.</p>
-                                <p>We began today with the following goals:</p>
-                                <p>Don't ever transmit the secret key over the Internet.</p>
-                                <p>Don't transmit any of the data as URL parameters which might show up in server logs.</p>
-                                <p>Sign all the data to verify its accuracy.</p>
-                                <p>And we accomplished all of these goals with only modest changes to our API code. It was fun making these changes and seeing how easily we can better secure an API. I hope you enjoyed following along with today's episode.</p>
-                                <p>I regularly monitor the comments, so please join in the discussion. You can also reach me on Twitter @letslearn.id directly. And, of course, watch for upcoming tutorials here in the Building Your Startup With PHP series.</p>
-                                <p>If you didn't earlier, try scheduling a meeting at Meeting Planner and let me know what you think. I especially appreciate feature requests.</p>
+                                <p>Google has launched the first developer preview of the next Android version, currently code-named <a href="#" rel="external" target="_blank">Android O</a> (Oreo maybe?). Some exciting features were released, and one of them is <strong>Notification Channels</strong>. In this tutorial, we'll explore this feature and build a simple app that demonstrates the functionalities it provides. <br></p>
+                                <h2>What Are Notification Channels?</h2>
+                                <p>Notification channels enable us app developers to group our notifications into groups—channels—with the user having the ability to modify notification settings for the entire channel at once. For example, for each channel, users can completely block all notifications, override the importance level, or allow a notification badge to be shown. This new feature helps in greatly improving the user experience of an app. </p>
+                                <p>We're going to learn about this feature by building a simple application called "TutsplusAlerts" that will provide two notification channels: Android and iOS. The user will receive a notification from one of these separate channels whenever a new article is submitted.</p>
+                                <p>To begin to use Android O APIs as of this writing, you will need to have the latest <a href="#" rel="external" target="_blank">Android Studio 2.4 Canary</a> installed on your computer. </p>
+                                <p>Launch Android Studio 2.4 and open the SDK Manager by clicking <strong>Tools &gt; Android &gt; SDK Manager</strong>.</p>
+                                <p>Then, in the <strong>SDK Platforms</strong> tab, check Show Package Details. Below <strong>Android O Preview</strong>, check the following: <strong>Android SDK Platform O</strong> and <strong>Google APIs Intel x86 Atom System Image</strong> (required only for the emulator).</p>
+                                <p>Then switch to the <strong>SDK Tools</strong> tab, and select the following: </p>
+                                <ul>
+                                    <li><strong>Android SDK Build-Tools 26.0.0</strong> (rc1 or higher)</li>
+                                    <li><strong>Android SDK Platform-Tools 26.0.0</strong> (rc1 or higher)</li>
+                                    <li><strong>Android Emulator 26.0.0</strong></li>
+                                    <li><strong>Support Repository</strong></li>
+                                </ul>
+                                <p>Click the <strong>OK</strong> button to download all of these components.</p>
+                                <p>In your Android Studio, create a new project named <strong>TutsplusAlerts</strong> with an empty activity called <code>MainActivity</code>.</p>
+                                <p>Go to your app module <strong>build.</strong><strong>gradle</strong> file and update <code>compileSdkVersion</code>, <code>buildToolsVersion</code> and <code>targetSdkVersion</code> and finally the Support Library version.<br></p>
                             </div>
 
                         </div>
@@ -120,35 +124,6 @@
                         </a>
                     </div>
 
-                    <div class="blog-comments" id="comments">
-                        <h3 class="p-title title-alt">
-                            <span>Comments</span>
-                        </h3>
-                        <ul class="comments-list">
-                            <li class="panel">
-                                <div class="panel-body">
-                                    <div class="comment-wrapper">
-                                        <div class="clearfix">
-                                            <div class="float-left">
-                                                <div class="comment-author">
-                                                    <b>Ekansh Saxena</b> says:
-                                                </div>
-                                            </div>
-                                            <div class="float-right">
-                                                <div class="comment-date">
-                                                    <i class="glyph-icon icon-clock-o"></i>
-                                                    6 June 2017
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="comment-body">
-                                            <p>But here you are storing the secret key on user's mobile device which is not secure as well.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
                     <div id="add-comment">
                         <h3 class="p-title title-alt">
                             <span>Leave a reply</span>

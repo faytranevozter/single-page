@@ -601,6 +601,17 @@ button:focus, button:hover {
 .blog-box .post-image {
     margin-top: 30px;
     margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+}
+.blog-box .post-image img {
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
 }
 .blog-box .post-meta {
     padding: 15px 0;
