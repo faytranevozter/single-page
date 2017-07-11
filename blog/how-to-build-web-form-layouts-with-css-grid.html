@@ -87,19 +87,33 @@
                             </div>
                             <div class="divider"></div>
                             <div class="post-content">
-                                <p>Recently, I introduced you to Yii's simple REST API generation and Meeting Planner's new "RESTful" service API. At that time, I mentioned that these APIs were only loosely secured. Sure, there was a shared secret between the client and the server, but there were a couple of problems.</p>
-                                <p>First, the secret key and user tokens were repeatedly transmitted in query parameters of SSL calls. And there was no other authenticity check for the data, allowing a middle-person attack.</p>
-                                <p>In today's episode, I'll guide you through how I secured the API against these weaknesses for a more robust API.</p>
-                                <p>If you've been reading our startup series, you've probably already tried Meeting Planner and Simple Planner, but if not, please do. Scheduling a meeting is easy:</p>
-                                <p>As usual, I'll be participating in the comments below, so please offer your thoughts. You can also reach me on Twitter @letslearn.id. I'm always especially intrigued if you want to suggest new features or topics for future tutorials. As a reminder, all of the code for Meeting Planner is written in the Yii2 Framework for PHP. If you'd like to learn more about Yii2, check out our parallel series Programming With Yii2.</p>
-                                <p>Furthermore, as I reviewed last time, each user receives their own token when they access Meeting Planner through the API, e.g. via their mobile phone. So, subsequent to registration, we can sign calls with their individual token and don't need to transmit either the application's secret key or the user's individual token.</p>
-                                <p>We began today with the following goals:</p>
-                                <p>Don't ever transmit the secret key over the Internet.</p>
-                                <p>Don't transmit any of the data as URL parameters which might show up in server logs.</p>
-                                <p>Sign all the data to verify its accuracy.</p>
-                                <p>And we accomplished all of these goals with only modest changes to our API code. It was fun making these changes and seeing how easily we can better secure an API. I hope you enjoyed following along with today's episode.</p>
-                                <p>I regularly monitor the comments, so please join in the discussion. You can also reach me on Twitter @letslearn.id directly. And, of course, watch for upcoming tutorials here in the Building Your Startup With PHP series.</p>
-                                <p>If you didn't earlier, try scheduling a meeting at Meeting Planner and let me know what you think. I especially appreciate feature requests.</p>
+                                <p>In this tutorial we will explore how to build a couple of different web forms using CSS Grid. For each example we will first use floats, and then see how the same layout could be done using CSS Grid.</p>
+                                <p>If you don’t have any previous knowledge of CSS grid, take a look at our beginner’s series <a href="#">Understanding the CSS Grid Layout Module</a>. Let’s begin!</p>
+                                <p>In this layout we’re going to divide the form into two columns so we can display the labels on the left, and the input fields on the right. </p>
+                                <h3>With “Traditional” CSS</h3>
+                                <p>A traditional approach to this layout might use floats to give us our columns. Notice that we don’t have a wrapper for the form element; we will directly style the labels and inputs.</p>
+                                <p>You’ll notice we’re using <code>calc()</code> here, which allows us to make our left column fixed at 200px wide, whilst the right column remains fluid.</p>
+                                <p>Here is the result, with some additional styles for aesthetics:</p>
+                                <p>Our goal when using “Grid” is to define two columns, and then place each element in its required column.</p>
+                                <p>The first step is to define our grid on the parent element <code>form</code>:</p>
+                                <p>Then, we need to divide that grid using <code>grid-template-columns</code>:<br></p>
+                                <p>Based on the above CSS, the first column will have a fixed width of <code>200px</code> whilst the second will take <code>1fr</code> (“one fraction”) of the remaining available space.</p>
+                                <p>We now need to define the placement for our labels and inputs. To do that, we will use <code>grid-column</code> with specific values for the grid lines:</p>
+                                <p>For more on how grid lines work, take a look at this quick tip:</p>
+                                <p>Based on these grid lines, we will apply the following rules for our labels, inputs and the button:<br></p>
+                                <p>The labels will find themselves in the column which begins on line 1 and ends on line 2. The inputs and button will be placed in the column which begins on line 2 and ends on line 3.</p>
+                                <p>Finally, we use <code>grid-gap</code> to add a gutter of 16px between the rows and columns :</p>
+                                <p>In this layout, we want to achieve the following:</p>
+                                <ol>
+                                	<li>Column heights should be equal, so the sidebar and the form wrapper are the same height.</li>
+                                	<li>We want to further divide the form (the right hand side) into two columns, altering the button so it fills the full width.</li>
+                                </ol>
+                                <p>It’s perfectly possible to build this layout using floats. However, we will need to set a <code>min-height</code> for the left column, otherwise it won’t assume the full height. There are other “traditional” approaches to this issue, but none are particularly pretty.</p>
+                                <p>To sum up, with floats we need to:</p>
+                                <p>That’s quite a bit of work, right?</p>
+                                <p>A better approach would be to solve this with either Flexbox or Grid. In this particular case, I would prefer to use Grid since we’re arranging elements both horizontally and vertically.<br></p>
+                                <p>Let’s begin by declaring a grid on our wrapper and dividing it into two columns.</p>
+                                <p>Do you have any suggestions for improving these layouts? Let me know in the comments below!</p>
                             </div>
 
                         </div>
@@ -162,6 +176,18 @@
 
                 </div>
                 <div class="col-3">
+                	<div class="content-box">
+                	    <h3 class="content-box-header">
+                	        Free Trial
+                	    </h3>
+                	    <div class="content-box-wrapper">
+                	        <p style="margin: 0 0 5px;">Enter your email to get a free class tickets.</p>
+                	        <form action="" method="post">
+                	            <input type="email" class="form-control" style="margin-bottom: 10px;" placeholder="email@address.com">
+                	            <button class="btn btn-primary" type="submit">Join Trial</button>
+                	        </form>
+                	    </div>
+                	</div>
                     <div class="content-box">
                         <h3 class="content-box-header">
                             Programs
