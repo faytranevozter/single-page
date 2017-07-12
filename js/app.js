@@ -34,6 +34,11 @@ $(document).ready(function(){
 		return false;
 	});
 
+	// footer and link akakom
+	$('#footer').find('.footer-pane .container.clearfix')
+	.addClass('text-center')
+	.prepend('<span>Muhammad Fahrur Rifai / 165410011 / <a href="http://www.akakom.ac.id" rel="nofollow" target="_blank">AKAKOM</a></span>');
+
 });
 
 function PopupCenter(url, title, w, h) {

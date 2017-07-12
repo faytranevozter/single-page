@@ -39,6 +39,11 @@ a:hover {
     text-align: center!important;
 }
 
+label {
+    font-weight: 700;
+    display: inline-block;
+}
+
 #page-wrapper:after, 
 .clearfix:after, 
 .row:after, 
@@ -304,6 +309,12 @@ p.section-description {
     border-color: transparent;
     background-image: none;
     -o-user-select: none;
+}
+.btn-block {
+    display: block;
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
 }
 .btn-success {
     color: #fff;
@@ -780,6 +791,10 @@ textarea.form-control {
     height: auto;
     resize: none;
 }
+.form-control:focus {
+    color: #333;
+    border-color: #3da6ff;
+}
 .btn {
     line-height: 32px;
     height: 34px;
@@ -852,6 +867,18 @@ button:active {
     border-color: #dfe8f1;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
+}
+.content-box .button-pane {
+    padding: 10px;
+    text-align: center;
+    border-width: 1px 0 0;
+    border-style: solid;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    color: #555a60;
+    background-color: #FEFEFF;
+    border-radius: 3px;
+    border-color: #dfe8f1;
 }
 .posts-list ul {
     list-style: none;
@@ -1038,6 +1065,17 @@ button:active {
     color: #fff;
     background: #41e5c0;
     border-color: #3acead;
+}
+
+/* SIGN UP */
+ul.contact-list {
+    margin: 0 0 0 10px;
+    padding: 0;
+    list-style: none;
+}
+ul.contact-list li {
+    padding: 5px 0;
+    font-size: 14px;
 }
 
 /* RESPONSIVE */
