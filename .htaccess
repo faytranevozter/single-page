@@ -1,0 +1,2 @@
+ErrorDocument 404 http://99designs.me/myweb/not-found.html
+ErrorDocument 403 http://99designs.me/myweb/not-found.html
